@@ -1,12 +1,6 @@
 ﻿﻿using System;
 using Buff;
 
-struct DifficultyLevels {
-	public const double Easy = 0.10;
-	public const double Medium = 0.15;
-	public const double Hard = 0.20;
-}
-
 namespace Minesweeper {
 class Program {
 
