@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿using System;
 using Buff;
 
 namespace Minesweeper {
@@ -13,6 +13,33 @@ class Program {
 		}
 		var game = new Game(boardSize);
 		game.DrawBoard();
+		Console.SetCursorPosition(0, 0);
+		var key = Console.ReadKey(false);
+		while (true) {
+			switch (key.Key) {
+				case ConsoleKey.RightArrow:
+					Console.CursorLeft += 3;
+					break;
+				case ConsoleKey.LeftArrow:
+					Console.CursorLeft -= 3;
+					break;
+				case ConsoleKey.UpArrow:
+					Console.CursorTop -= 1;
+					break;
+				case ConsoleKey.DownArrow:
+					Console.CursorTop += 1;
+					break;
+				case ConsoleKey.Spacebar:
+					game.RevealSpace(Console.CursorLeft / 3, Console.CursorTop);
+					break;
+			}
+			var x = Console.CursorLeft;
+			var y = Console.CursorTop;
+			game.DrawBoard();
+			Console.SetCursorPosition(x, y);
+			key = Console.ReadKey(false);
+		}
+
 	}
 }
 }
